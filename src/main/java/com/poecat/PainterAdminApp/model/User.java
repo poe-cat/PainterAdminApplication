@@ -10,8 +10,8 @@ import javax.validation.constraints.NotBlank;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @NotBlank(message = "Name is mandatory")
     private String name;
@@ -19,17 +19,20 @@ public class User {
     @NotBlank(message = "Email is mandatory")
     private String email;
 
-    public User(long id, String name, String email) {
+    public User() {
+    }
+
+    public User(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
